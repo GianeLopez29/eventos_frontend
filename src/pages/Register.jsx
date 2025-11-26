@@ -8,15 +8,9 @@ import { useAuth } from '../context/AuthContext';
 import './Auth.css';
 
 const schema = yup.object({
-  nombre: yup.string()
-    .required('Nombre requerido')
-    .min(2, 'El nombre debe tener al menos 2 caracteres')
-    .matches(/^[a-zA-ZÀ-ſ\s]+$/, 'El nombre solo puede contener letras y espacios'),
+  nombre: yup.string().required('Nombre requerido'),
   email: yup.string().email('Email inválido').required('Email requerido'),
-  password: yup.string()
-    .min(6, 'Mínimo 6 caracteres')
-    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/, 'Debe contener mayúscula, minúscula y número')
-    .required('Contraseña requerida'),
+  password: yup.string().min(6, 'Mínimo 6 caracteres').required('Contraseña requerida'),
   confirmPassword: yup.string()
     .oneOf([yup.ref('password')], 'Las contraseñas no coinciden')
     .required('Confirmar contraseña requerida')
@@ -89,7 +83,7 @@ const Register = () => {
               type="password"
               {...register('password')}
               className={errors.password ? 'error' : ''}
-              placeholder="Mínimo 6 caracteres (mayúscula, minúscula, número)"
+              placeholder="Mínimo 6 caracteres"
             />
             {errors.password && <span className="error-message">{errors.password.message}</span>}
           </div>
