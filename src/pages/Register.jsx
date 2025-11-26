@@ -8,9 +8,15 @@ import { useAuth } from '../context/AuthContext';
 import './Auth.css';
 
 const schema = yup.object({
-  nombre: yup.string().required('Nombre requerido'),
+  nombre: yup.string()
+    .required('Nombre requerido')
+    .min(2, 'El nombre debe tener al menos 2 caracteres')
+    .matches(/^[a-zA-ZÀ-ſ\s]+$/, 'El nombre solo puede contener letras y espacios'),
   email: yup.string().email('Email inválido').required('Email requerido'),
-  password: yup.string().min(6, 'Mínimo 6 caracteres').required('Contraseña requerida'),
+  password: yup.string()
+    .min(6, 'Mínimo 6 caracteres')
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/, 'Debe contener mayúscula, minúscula y número')
+    .required('Contraseña requerida'),
   confirmPassword: yup.string()
     .oneOf([yup.ref('password')], 'Las contraseñas no coinciden')
     .required('Confirmar contraseña requerida')
@@ -35,7 +41,15 @@ const Register = () => {
       });
       navigate('/login');
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Error al registrarse');
+      const errorMessage = error.response?.data?.message || 'Error al registrarse';
+      
+      if (error.response?.data?.errors) {
+        // Mostrar errores de validación específicos
+        const validationErrors = error.response.data.errors.map(err => err.msg).join(', ');
+        toast.error(`Errores de validación: ${validationErrors}`);
+      } else {
+        toast.error(errorMessage);
+      }
     } finally {
       setLoading(false);
     }
@@ -75,7 +89,7 @@ const Register = () => {
               type="password"
               {...register('password')}
               className={errors.password ? 'error' : ''}
-              placeholder="Mínimo 6 caracteres"
+              placeholder="Mínimo 6 caracteres (mayúscula, minúscula, número)"
             />
             {errors.password && <span className="error-message">{errors.password.message}</span>}
           </div>
