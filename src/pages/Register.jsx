@@ -29,21 +29,17 @@ const Register = () => {
     setLoading(true);
     try {
       const { confirmPassword, ...userData } = data;
-      await registerUser(userData);
-      toast.success('¡Registro exitoso! Te hemos enviado un email de verificación. Revisa tu bandeja de entrada y haz clic en el enlace para activar tu cuenta.', {
-        autoClose: 8000
-      });
+      console.log('Enviando datos:', userData);
+      const response = await registerUser(userData);
+      console.log('Respuesta del servidor:', response);
+      toast.success('¡Registro exitoso! Ya puedes iniciar sesión.');
       navigate('/login');
     } catch (error) {
-      const errorMessage = error.response?.data?.message || 'Error al registrarse';
+      console.error('Error completo:', error);
+      console.error('Error response:', error.response);
       
-      if (error.response?.data?.errors) {
-        // Mostrar errores de validación específicos
-        const validationErrors = error.response.data.errors.map(err => err.msg).join(', ');
-        toast.error(`Errores de validación: ${validationErrors}`);
-      } else {
-        toast.error(errorMessage);
-      }
+      const errorMessage = error.response?.data?.message || error.message || 'Error al registrarse';
+      toast.error(errorMessage);
     } finally {
       setLoading(false);
     }
