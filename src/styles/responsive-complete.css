@@ -1,0 +1,158 @@
+/* ===== BREAKPOINTS COMPLETOS PARA TODOS LOS DISPOSITIVOS ===== */
+
+/* Extra Small Mobile - 280px to 320px (iPhone SE, Galaxy Fold) */
+@media (max-width: 320px) {
+  html { font-size: 14px; }
+  .container { padding: 0 0.5rem; }
+  .events-grid { grid-template-columns: 1fr !important; gap: 1rem; }
+  .page-header { padding: 1.5rem 0.5rem; margin: 0.5rem; }
+  .filters { padding: 1rem; margin: 0 0.5rem 1rem; }
+  .btn-hero { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+}
+
+/* Small Mobile - 321px to 375px (iPhone 12 mini) */
+@media (min-width: 321px) and (max-width: 375px) {
+  html { font-size: 15px; }
+  .events-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .hero-stats { grid-template-columns: 1fr; }
+}
+
+/* Medium Mobile - 376px to 414px (iPhone 12/13/14) */
+@media (min-width: 376px) and (max-width: 414px) {
+  .events-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .hero-stats { grid-template-columns: 1fr; }
+}
+
+/* Large Mobile - 415px to 480px (iPhone Plus, Pixel) */
+@media (min-width: 415px) and (max-width: 480px) {
+  .events-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* Extra Large Mobile - 481px to 600px */
+@media (min-width: 481px) and (max-width: 600px) {
+  .events-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-stats { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Small Tablet Portrait - 601px to 768px (iPad mini) */
+@media (min-width: 601px) and (max-width: 768px) {
+  .events-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .hero { height: 80vh; }
+}
+
+/* Large Tablet Portrait - 769px to 834px (iPad) */
+@media (min-width: 769px) and (max-width: 834px) {
+  .events-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+}
+
+/* Tablet Landscape - 835px to 1024px (iPad Pro) */
+@media (min-width: 835px) and (max-width: 1024px) {
+  .events-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+}
+
+/* Small Laptop - 1025px to 1280px */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .events-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+}
+
+/* Large Laptop - 1281px to 1366px */
+@media (min-width: 1281px) and (max-width: 1366px) {
+  .events-grid { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+}
+
+/* Small Desktop - 1367px to 1440px */
+@media (min-width: 1367px) and (max-width: 1440px) {
+  .events-grid { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+}
+
+/* Large Desktop - 1441px to 1920px */
+@media (min-width: 1441px) and (max-width: 1920px) {
+  .events-grid { grid-template-columns: repeat(4, 1fr); gap: 3rem; }
+}
+
+/* 4K Desktop - 1921px to 2560px */
+@media (min-width: 1921px) and (max-width: 2560px) {
+  .events-grid { grid-template-columns: repeat(4, 1fr); gap: 3.5rem; }
+  html { font-size: 18px; }
+}
+
+/* 8K/Ultra Wide - 2561px+ */
+@media (min-width: 2561px) {
+  .events-grid { grid-template-columns: repeat(5, 1fr); gap: 4rem; }
+  html { font-size: 20px; }
+}
+
+/* ===== ORIENTACIÓN ===== */
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero { height: 100vh; }
+  .hero-text h1 { font-size: 2.5rem; }
+  .hero-stats { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ===== DISPOSITIVOS ESPECÍFICOS ===== */
+
+/* iPhone SE */
+@media only screen and (device-width: 375px) and (device-height: 667px) {
+  .events-grid { grid-template-columns: 1fr; }
+  .hero { height: 100vh; }
+}
+
+/* iPhone 12/13/14 */
+@media only screen and (device-width: 390px) and (device-height: 844px) {
+  .events-grid { grid-template-columns: 1fr; }
+}
+
+/* iPhone 12/13/14 Pro Max */
+@media only screen and (device-width: 428px) and (device-height: 926px) {
+  .events-grid { grid-template-columns: 1fr; }
+}
+
+/* iPad */
+@media only screen and (device-width: 768px) and (device-height: 1024px) {
+  .events-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* iPad Pro */
+@media only screen and (device-width: 1024px) and (device-height: 1366px) {
+  .events-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Surface Pro */
+@media only screen and (device-width: 912px) and (device-height: 1368px) {
+  .events-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ===== TOUCH DEVICES ===== */
+@media (hover: none) and (pointer: coarse) {
+  .btn-hero, .btn-view, .nav-link {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .event-card:hover {
+    transform: none;
+  }
+  
+  .event-card:active {
+    transform: scale(0.98);
+  }
+}
+
+/* ===== HIGH DPI DISPLAYS ===== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .event-image img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* ===== FOLDABLE DEVICES ===== */
+@media (max-width: 280px) {
+  .nav-logo { font-size: 1.2rem; }
+  .page-header h1 { font-size: 1.5rem; }
+  .event-content { padding: 0.75rem; }
+}
+
+/* Galaxy Fold unfolded */
+@media (min-width: 717px) and (max-width: 717px) {
+  .events-grid { grid-template-columns: repeat(2, 1fr); }
+}
