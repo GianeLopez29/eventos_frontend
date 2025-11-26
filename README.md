@@ -171,3 +171,14 @@ src/
 ```env
 VITE_API_URL=https://tu-api-backend.com/api
 ```
+
+---
+
+## Autor
+
+**Gianella Kiara López Yegros**  
+Estudiante de Diplomatura en Desarrollo Web Full Stack  
+UTN - Universidad Tecnológica Nacional
+
+*Proyecto Final - Sistema de Gestión de Eventos*  
+*Año 2025*
