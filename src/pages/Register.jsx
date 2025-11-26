@@ -30,7 +30,9 @@ const Register = () => {
     try {
       const { confirmPassword, ...userData } = data;
       await registerUser(userData);
-      toast.success('Registro exitoso. Revisa tu email para verificar la cuenta.');
+      toast.success('¡Registro exitoso! Te hemos enviado un email de verificación. Revisa tu bandeja de entrada y haz clic en el enlace para activar tu cuenta.', {
+        autoClose: 8000
+      });
       navigate('/login');
     } catch (error) {
       toast.error(error.response?.data?.message || 'Error al registrarse');

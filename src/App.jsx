@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import CreateEvent from './pages/CreateEvent';
 import MyEvents from './pages/MyEvents';
+import VerifyEmail from './pages/VerifyEmail';
 import 'react-toastify/dist/ReactToastify.css';
 import './styles/responsive.css';
 import './styles/responsive-complete.css';
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" element={<Events />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/verify-email/:token" element={<VerifyEmail />} />
             <Route path="/create-event" element={<CreateEvent />} />
             <Route path="/my-events" element={<MyEvents />} />
           </Routes>

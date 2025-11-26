@@ -28,7 +28,12 @@ const Login = () => {
       toast.success('Inicio de sesión exitoso');
       navigate('/');
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Error al iniciar sesión');
+      const errorMessage = error.response?.data?.message || 'Error al iniciar sesión';
+      if (errorMessage.includes('Email no verificado')) {
+        toast.error('Debes verificar tu email antes de iniciar sesión. Revisa tu bandeja de entrada.');
+      } else {
+        toast.error(errorMessage);
+      }
     } finally {
       setLoading(false);
     }
