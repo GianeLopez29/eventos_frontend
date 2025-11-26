@@ -67,10 +67,11 @@
   border-radius: 15px;
   font-size: 1.05rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   font-weight: 500;
   cursor: text;
+  color: #2d3748;
 }
 
 .form-group input::placeholder {
@@ -83,6 +84,7 @@
   outline: none;
   border-color: #667eea;
   background: white;
+  color: #2d3748;
   box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
   transform: translateY(-2px);
 }
